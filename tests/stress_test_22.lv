@@ -1,0 +1,8 @@
+interface Logger { fn log(msg: string) }
+class ConsoleLogger : Logger {
+    fn log(msg: string) { @println(msg) }
+}
+fn main() {
+    mut l: Logger = ConsoleLogger {};
+    l.log("test");
+}

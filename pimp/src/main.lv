@@ -1,0 +1,13 @@
+fn main(): int {
+    x: int = 10
+    y: int = match x {
+        5 => 100,
+        10 => 200,
+        _ => 300
+    }
+    
+    @print("Match result: ")
+    @print(y)
+    @print("\n")
+    return 0
+}

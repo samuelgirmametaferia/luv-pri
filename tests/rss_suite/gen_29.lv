@@ -1,0 +1,6 @@
+// RSS Generated Test 29 (Category: sao_tag)
+fn main() {
+    unique x_29 = 29;
+    rc_shared y_29 = x_29;
+    0
+}

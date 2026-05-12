@@ -1,0 +1,6 @@
+// RSS Generated Test 181 (Category: sao_tag)
+fn main() {
+    unique x_181 = 181;
+    lent y_181 = x_181;
+    0
+}

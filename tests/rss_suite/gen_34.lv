@@ -1,0 +1,6 @@
+// RSS Generated Test 34 (Category: aliasing)
+fn main() {
+    unique x_34 = 34;
+    lent y_34 = x_34;
+    0
+}

@@ -1,0 +1,6 @@
+// RSS Generated Test 151 (Category: psf_stress)
+fn main() {
+    unique x_151 = 151;
+    lent y_151 = x_151;
+    0
+}

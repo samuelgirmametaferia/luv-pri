@@ -1,0 +1,11 @@
+# BLV Build Orchestration for my_luv_project
+
+let src = @load("./src/main.lv", codec.luv)
+
+# Build to object
+let obj = @build -o "build" src
+
+# Link to executable statically
+@link(obj, "build/my_luv_project", "static")
+
+@emit(obj, "build/my_luv_project.o")

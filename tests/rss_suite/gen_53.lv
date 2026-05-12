@@ -1,0 +1,6 @@
+// RSS Generated Test 53 (Category: sao_tag)
+fn main() {
+    unique x_53 = 53;
+    rc_shared y_53 = x_53;
+    0
+}

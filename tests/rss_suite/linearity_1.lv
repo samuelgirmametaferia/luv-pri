@@ -1,0 +1,3 @@
+// RSS Test: linearity 1
+// should error
+fn f(unique x) { 0 } fn main() { unique x = 10; f(x); f(x); 0 } // should error: unique used after move

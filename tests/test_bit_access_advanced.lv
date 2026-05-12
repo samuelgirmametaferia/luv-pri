@@ -1,0 +1,18 @@
+fn main() {
+    x = 0b1101; # 13
+    
+    b0 = x.0;
+    b1 = x.1;
+    b2 = x.2;
+    b3 = x.3;
+
+    @println("Bits of %d: %d%d%d%d", x, b3, b2, b1, b0);
+
+    # Large integer bit access
+    y: i128 = 1;
+    y = y << 100;
+    bit100 = y.100;
+    @println("Bit 100 of large int: %d", bit100);
+
+    0
+}

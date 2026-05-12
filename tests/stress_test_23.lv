@@ -1,0 +1,11 @@
+abstract class Shape {
+    abstract fn area() : float;
+}
+class Circle : Shape {
+    radius: float
+    override fn area() : float { return 3.14 * self.radius * self.radius }
+}
+fn main() {
+    mut c = Circle { radius: 1.0 };
+    @println(c.area());
+}

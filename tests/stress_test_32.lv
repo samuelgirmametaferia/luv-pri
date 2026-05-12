@@ -1,0 +1,5 @@
+fn test[T;](x: T) : T { return x }
+fn main() {
+    mut x = test[int;](5);
+    @println(x);
+}

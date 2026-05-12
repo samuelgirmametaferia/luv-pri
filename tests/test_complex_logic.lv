@@ -1,0 +1,30 @@
+# Test: Complex Logic and Boolean Operators
+main() {
+    a = true
+    b = false
+    c = true
+    
+    # Short-circuiting and precedence
+    if a || b && c {
+        @println("a || b && c is true")
+    }
+    
+    if (a || b) && !c {
+        @println("FAIL")
+    } else {
+        @println("PASS: (a || b) && !c is false")
+    }
+    
+    x = 10
+    y = 20
+    z = 15
+    
+    # Comparison chains
+    if x < z < y {
+        @println("PASS: 10 < 15 < 20")
+    } else {
+        @println("FAIL: 10 < 15 < 20")
+    }
+    
+    0
+}

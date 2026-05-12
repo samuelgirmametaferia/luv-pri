@@ -1,0 +1,6 @@
+// RSS Generated Test 22 (Category: interprocedural)
+fn main() {
+    unique x_22 = 22;
+    lent y_22 = x_22;
+    0
+}

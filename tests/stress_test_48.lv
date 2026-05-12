@@ -1,0 +1,8 @@
+struct Point { x: int, y: int }
+fn main() {
+    mut p = Point { x: 1, y: 2 };
+    match p {
+        Point { x: 1, y: 2 } => @println("match"),
+        _ => @println("no match")
+    }
+}

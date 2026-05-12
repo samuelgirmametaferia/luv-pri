@@ -1,0 +1,6 @@
+// RSS Generated Test 141 (Category: sao_tag)
+fn main() {
+    unique x_141 = 141;
+    unique y_141 = x_141;
+    0
+}

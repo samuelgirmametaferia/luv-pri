@@ -1,0 +1,6 @@
+// RSS Generated Test 58 (Category: aliasing)
+fn main() {
+    unique x_58 = 58;
+    lent y_58 = x_58;
+    0
+}

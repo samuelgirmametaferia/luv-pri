@@ -1,0 +1,6 @@
+// RSS Generated Test 65 (Category: escape)
+fn main() {
+    unique x_65 = 65;
+    rc_shared y_65 = x_65;
+    0
+}

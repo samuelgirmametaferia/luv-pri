@@ -1,0 +1,6 @@
+// should error
+class Node { next: Node? }
+fn main() {
+    mut n: Node? = nen;
+    mut x = n?.next;
+}

@@ -1,0 +1,7 @@
+fn main() {
+    mut t = (1, (2, 3));
+    match t {
+        (1, (2, 3)) => @println("match"),
+        _ => @println("no match")
+    }
+}

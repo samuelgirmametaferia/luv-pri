@@ -1,0 +1,2 @@
+// RSS Test: aliasing 1
+fn main() { unique x = 10; lent y = x; x = 20; 0 } // mutate unique with active lent

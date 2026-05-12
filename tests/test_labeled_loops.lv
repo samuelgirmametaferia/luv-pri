@@ -1,0 +1,20 @@
+# Test: Labeled Loops (Break/Continue)
+main() {
+    mut i = 0
+    ![outer] while i < 3 {
+        mut j = 0
+        while j < 3 {
+            if i == 1 && j == 1 {
+                i += 1
+                @println("Breaking outer at i=1, j=1")
+                break outer
+            }
+            @println("i=", i, ", j=", j)
+            j += 1
+        }
+        i += 1
+    }
+    
+    @println("Loop finished")
+    0
+}

@@ -1,0 +1,22 @@
+interface A { fn a(self) }
+interface B : A { fn b(self) }
+
+class Impl : B {
+    override fn a(self) { @println("a") }
+    override fn b(self) { @println("b") }
+}
+
+fn main() {
+    obj = Impl();
+    obj.a();
+    obj.b();
+
+    mut a: A = obj;
+    a.a();
+
+    mut b: B = obj;
+    b.a();
+    b.b();
+
+    0
+}

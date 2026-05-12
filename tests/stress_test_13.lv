@@ -1,0 +1,14 @@
+fn main() {
+    mut count = 0;
+    while true {
+        count += 1;
+        if count > 100 {
+            break;
+        } else {
+            if count % 2 == 0 {
+                continue;
+            }
+        }
+        @println(count);
+    }
+}

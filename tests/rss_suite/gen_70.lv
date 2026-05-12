@@ -1,0 +1,6 @@
+// RSS Generated Test 70 (Category: interprocedural)
+fn main() {
+    unique x_70 = 70;
+    lent y_70 = x_70;
+    0
+}

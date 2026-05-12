@@ -1,0 +1,11 @@
+@test
+class C {
+    @field
+    x: int
+    @method
+    fn f() {}
+}
+fn main() {
+    @local
+    mut x = 5;
+}

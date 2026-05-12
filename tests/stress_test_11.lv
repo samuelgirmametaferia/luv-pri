@@ -1,0 +1,11 @@
+fn main() {
+    outer: for i in 0..10 {
+        inner: for j in 0..10 {
+            deep: for k in 0..10 {
+                if i + j + k > 15 {
+                    break outer;
+                }
+            }
+        }
+    }
+}

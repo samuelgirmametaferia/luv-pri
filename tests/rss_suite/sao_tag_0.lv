@@ -1,0 +1,2 @@
+// RSS Test: sao_tag 0
+fn main() { unique x = 10; rc_shared y = x; 0 } // state transition UNIQUE -> RC_SHARED

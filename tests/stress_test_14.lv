@@ -1,0 +1,9 @@
+fn main() {
+    L1: for i in 0..3 {
+        mut i = 10;
+        L2: for j in 0..3 {
+            mut j = 20;
+            break L1;
+        }
+    }
+}

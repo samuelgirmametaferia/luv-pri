@@ -1,0 +1,6 @@
+// RSS Generated Test 178 (Category: aliasing)
+fn main() {
+    unique x_178 = 178;
+    lent y_178 = x_178;
+    0
+}

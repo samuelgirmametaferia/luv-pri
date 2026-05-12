@@ -1,0 +1,28 @@
+# Test: Optional Keywords (if supported)
+# These may require grammar changes if not already optional
+
+# fn keyword optional?
+hello() {
+    @println("Hello from implicit fn")
+}
+
+# struct keyword optional?
+Point {
+    x: int,
+    y: int
+}
+
+# class keyword optional?
+Person {
+    name: string,
+    age: int
+}
+
+main() {
+    hello()
+    p = Point{x: 10, y: 20}
+    per = Person{name: "Alice", age: 30}
+    @println("Point: ", p.x, ", ", p.y)
+    @println("Person: ", per.name)
+    0
+}

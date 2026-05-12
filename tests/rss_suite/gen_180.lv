@@ -1,0 +1,6 @@
+// RSS Generated Test 180 (Category: degradation)
+fn main() {
+    unique x_180 = 180;
+    unique y_180 = x_180;
+    0
+}

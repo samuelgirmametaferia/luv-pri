@@ -1,0 +1,6 @@
+// RSS Generated Test 90 (Category: aliasing)
+fn main() {
+    unique x_90 = 90;
+    unique y_90 = x_90;
+    0
+}

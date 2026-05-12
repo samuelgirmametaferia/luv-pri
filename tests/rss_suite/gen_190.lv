@@ -1,0 +1,6 @@
+// RSS Generated Test 190 (Category: interprocedural)
+fn main() {
+    unique x_190 = 190;
+    lent y_190 = x_190;
+    0
+}

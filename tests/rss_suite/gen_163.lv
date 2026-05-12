@@ -1,0 +1,6 @@
+// RSS Generated Test 163 (Category: speculative)
+fn main() {
+    unique x_163 = 163;
+    lent y_163 = x_163;
+    0
+}

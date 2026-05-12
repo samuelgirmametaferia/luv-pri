@@ -1,0 +1,6 @@
+// RSS Generated Test 88 (Category: linearity)
+fn main() {
+    unique x_88 = 88;
+    lent y_88 = x_88;
+    0
+}

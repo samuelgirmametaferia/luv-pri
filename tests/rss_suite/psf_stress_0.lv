@@ -1,0 +1,2 @@
+// RSS Test: psf_stress 0
+fn main() { for i in 0..100 { rc_shared x = i; } 0 } // trigger PSF

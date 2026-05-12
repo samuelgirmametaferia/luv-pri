@@ -1,0 +1,56 @@
+struct Point {
+    x: i32
+    y: i32
+}
+
+fn main() {
+    p = Point { x: 10, y: 20 };
+    println(&"p.x: {p.x}, p.y: {p.y}");
+
+    match p.x {
+        10 => println("ten"),
+        _ => println("not ten")
+    };
+
+    i = 0;
+    loop {
+        if i >= 5 { break; }
+        print(&"{i} ");
+        i++;
+    };
+    println("");
+
+    j = 0;
+    while j < 5 {
+        if j == 2 { 
+            j++;
+            continue;
+        }
+        print(&"{j} ");
+        j++;
+    } continue {
+        println(" (iteration end)");
+    }
+
+    for 0..3 {
+        println("Repeating...");
+    }
+
+    flags: u8 = 0;
+    flags.0 = true;
+    flags.2 = true;
+    println(&"flags: {flags}");
+
+    # String += char
+    s = "luv";
+    s += '!';
+    println(s);
+    
+    # tnt type (arbitrary precision)
+    big: tnt = 1000000000000000000000000000000000;
+    println("big tnt value works!");
+
+    # Bytes literal
+    data = b"raw data";
+    println("Bytes are byte-complete now!");
+}

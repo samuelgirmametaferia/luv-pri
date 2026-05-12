@@ -1,0 +1,6 @@
+// RSS Generated Test 24 (Category: linearity)
+fn main() {
+    unique x_24 = 24;
+    unique y_24 = x_24;
+    0
+}

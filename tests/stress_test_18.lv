@@ -1,0 +1,7 @@
+class Base { fn greet() { @println("Base") } }
+class Middle : Base { override fn greet() { super.greet(); @println("Middle") } }
+class Derived : Middle { override fn greet() { super.greet(); @println("Derived") } }
+fn main() {
+    mut d = Derived {};
+    d.greet();
+}

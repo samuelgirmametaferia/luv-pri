@@ -1,0 +1,6 @@
+// RSS Generated Test 55 (Category: psf_stress)
+fn main() {
+    unique x_55 = 55;
+    lent y_55 = x_55;
+    0
+}

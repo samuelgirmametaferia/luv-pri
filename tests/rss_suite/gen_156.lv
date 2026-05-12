@@ -1,0 +1,6 @@
+// RSS Generated Test 156 (Category: degradation)
+fn main() {
+    unique x_156 = 156;
+    unique y_156 = x_156;
+    0
+}

@@ -1,0 +1,20 @@
+# Test: Variable Shadowing
+main() {
+    x = 10
+    @println("Outer x: ", x)
+    {
+        x = 20 # Shadowing? Or reassignment?
+        # In Luv, if we use 'x = 20' without 'mut' or 'const', it might be reassignment if 'x' exists.
+        # But if we use 'mut x = 20' it should definitely shadow.
+        mut x = 20
+        @println("Inner x: ", x)
+    }
+    @println("Outer x again: ", x)
+    
+    if x == 10 {
+        @println("PASS")
+    } else {
+        @println("FAIL")
+    }
+    0
+}

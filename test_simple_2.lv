@@ -1,0 +1,10 @@
+extern "C" fn malloc(size: u64): ptr
+extern "C" fn strcpy(dest: ptr, src: ptr): ptr
+
+fn main() {
+    s = "hello"
+    res = malloc(10 as! u64)
+    strcpy(res, s as! ptr)
+    i = 0
+    println("done")
+}

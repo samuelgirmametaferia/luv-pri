@@ -1,0 +1,6 @@
+fn main() {
+    if true {} else {}
+    while false {}
+    for i in 0..0 {}
+    loop { break; }
+}

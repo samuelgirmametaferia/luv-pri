@@ -1,0 +1,3 @@
+// RSS Test: linearity 0
+// should error
+fn main() { unique x = 10; unique y = x; unique z = x; 0 } // should error: unique move twice

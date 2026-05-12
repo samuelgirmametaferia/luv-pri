@@ -1,0 +1,6 @@
+// RSS Generated Test 44 (Category: degradation)
+fn main() {
+    unique x_44 = 44;
+    rc_shared y_44 = x_44;
+    0
+}

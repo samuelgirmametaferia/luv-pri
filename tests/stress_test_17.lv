@@ -1,0 +1,9 @@
+interface I1 { fn hello() }
+interface I2 { fn hello() }
+class C : I1, I2 {
+    fn hello() { @println("hello") }
+}
+fn main() {
+    mut c = C {};
+    c.hello();
+}

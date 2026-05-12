@@ -1,0 +1,11 @@
+# Test: Tuple Destructuring
+main() {
+    t = (10, "hello", 3.14)
+    
+    # Destructuring in assignment
+    mut x, s, f = t
+    
+    @println("Tuple elements: ", x, ", ", s, ", ", f)
+    
+    0
+}

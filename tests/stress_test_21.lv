@@ -1,0 +1,8 @@
+class A { fn foo() : int { return 1 } }
+class B : A { override fn foo() : int { return 2 } }
+class C : B {}
+class D : C { override fn foo() : int { return 4 } }
+fn main() {
+    mut d = D {};
+    @println(d.foo());
+}

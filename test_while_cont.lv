@@ -1,0 +1,14 @@
+fn main() {
+    j = 0
+    while j < 5 {
+        if j == 2 { 
+            j++
+            continue 
+        }
+        print(&"{j} ")
+        j++
+    } continue {
+        print("(end) ")
+    }
+    println("")
+}

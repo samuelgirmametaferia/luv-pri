@@ -1,0 +1,5 @@
+const X = 100;
+fn main() {
+    mut X = 50;
+    @println(X);
+}

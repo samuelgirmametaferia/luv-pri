@@ -1,0 +1,6 @@
+extern fn printf(fmt: string): int
+
+main() {
+    printf("Hello from %s!\n", "my_luv_project")
+    0
+}

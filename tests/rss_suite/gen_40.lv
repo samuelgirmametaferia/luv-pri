@@ -1,0 +1,6 @@
+// RSS Generated Test 40 (Category: linearity)
+fn main() {
+    unique x_40 = 40;
+    lent y_40 = x_40;
+    0
+}

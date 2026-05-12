@@ -1,0 +1,13 @@
+struct S {
+    x: int,
+    y: int,
+}
+fn test(
+    a: int,
+    b: int,
+) {}
+fn main() {
+    mut s = S { x: 1, y: 2, };
+    mut arr = [1, 2, 3, ];
+    test(1, 2, );
+}

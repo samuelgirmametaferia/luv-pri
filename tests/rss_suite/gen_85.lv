@@ -1,0 +1,6 @@
+// RSS Generated Test 85 (Category: sao_tag)
+fn main() {
+    unique x_85 = 85;
+    lent y_85 = x_85;
+    0
+}

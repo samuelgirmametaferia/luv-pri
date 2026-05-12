@@ -1,0 +1,6 @@
+// RSS Generated Test 26 (Category: aliasing)
+fn main() {
+    unique x_26 = 26;
+    rc_shared y_26 = x_26;
+    0
+}

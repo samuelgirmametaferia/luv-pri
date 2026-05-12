@@ -1,0 +1,6 @@
+// RSS Generated Test 47 (Category: psf_stress)
+fn main() {
+    unique x_47 = 47;
+    rc_shared y_47 = x_47;
+    0
+}

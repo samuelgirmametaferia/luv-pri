@@ -1,0 +1,101 @@
+extern "C" fn malloc(size: u64): ptr;
+extern "C" fn strlen(s: ptr): i64;
+extern "C" fn strcpy(dest: ptr, src: ptr): ptr;
+extern "C" fn strcat(dest: ptr, src: ptr): ptr;
+extern "C" fn strstr(haystack: ptr, needle: ptr): ptr;
+extern "C" fn strncmp(s1: ptr, s2: ptr, n: u64): i32;
+extern "C" fn toupper(c: i32): i32;
+extern "C" fn tolower(c: i32): i32;
+
+fn length(s: string): i64 {
+    return strlen(s as! ptr);
+}
+
+fn string_concat(s1: string, s2: string): string {
+    if s1 == nen { return s2; }
+    if s2 == nen { return s1; }
+    
+    len1: i64 = length(s1);
+    len2: i64 = length(s2);
+    
+    total: u64 = (len1 + len2 + 1) as! u64;
+    res: ptr = malloc(total);
+    
+    strcpy(res, s1 as! ptr);
+    strcat(res, s2 as! ptr);
+    
+    return res as! string;
+}
+
+fn append_char(s: string, c: char): string {
+    len: i64 = s == nen ? 0 : length(s);
+    res_ptr: ptr = malloc((len + 2) as! u64);
+    
+    if s != nen {
+        strcpy(res_ptr, s as! ptr);
+    }
+    
+    # Store char at the end
+    addr: u64 = (res_ptr as! u64) + (len as! u64);
+    target: ptr = addr as! ptr;
+    
+    # Use asm to store the byte
+    asm { "movb %1, (%0)" (target, c) };
+    
+    # Null terminator
+    target_next: ptr = (addr + 1) as! ptr;
+    asm { "movb $0, (%0)" (target_next) };
+    
+    return res_ptr as! string;
+}
+
+fn index_of(s: string, sub: string): i64 {
+    if s == nen or sub == nen { return -1; }
+    
+    res: ptr = strstr(s as! ptr, sub as! ptr);
+    if res == nen { return -1; }
+    
+    return (res as! u64 - s as! u64) as! i64;
+}
+
+fn starts_with(s: string, prefix: string): bool {
+    if s == nen or prefix == nen { return false; }
+    lp: i64 = length(prefix);
+    if lp > length(s) { return false; }
+    
+    return strncmp(s as! ptr, prefix as! ptr, lp as! u64) == 0;
+}
+
+fn to_upper(s: string): string {
+    if s == nen { return s; }
+    l: i64 = length(s);
+    res: ptr = malloc((l + 1) as! u64);
+    strcpy(res, s as! ptr);
+    
+    i: i64 = 0;
+    while i < l {
+        addr: u64 = (res as! u64) + (i as! u64);
+        ch: i32 = asm { "movsbq (%1), %0" (addr as! ptr) rtn 0 } as! i32;
+        up: i32 = toupper(ch);
+        asm { "movb %1, (%0)" (addr as! ptr, up as! i8) };
+        i++;
+    }
+    return res as! string;
+}
+
+fn to_lower(s: string): string {
+    if s == nen { return s; }
+    l: i64 = length(s);
+    res: ptr = malloc((l + 1) as! u64);
+    strcpy(res, s as! ptr);
+    
+    i: i64 = 0;
+    while i < l {
+        addr: u64 = (res as! u64) + (i as! u64);
+        ch: i32 = asm { "movsbq (%1), %0" (addr as! ptr) rtn 0 } as! i32;
+        lo: i32 = tolower(ch);
+        asm { "movb %1, (%0)" (addr as! ptr, lo as! i8) };
+        i++;
+    }
+    return res as! string;
+}

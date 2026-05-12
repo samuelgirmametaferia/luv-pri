@@ -1,0 +1,6 @@
+// RSS Generated Test 80 (Category: linearity)
+fn main() {
+    unique x_80 = 80;
+    rc_shared y_80 = x_80;
+    0
+}

@@ -1,0 +1,6 @@
+// RSS Generated Test 64 (Category: linearity)
+fn main() {
+    unique x_64 = 64;
+    lent y_64 = x_64;
+    0
+}

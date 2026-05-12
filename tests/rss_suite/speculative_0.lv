@@ -1,0 +1,2 @@
+// RSS Test: speculative 0
+![speculative] fn main() { unique x = 10; if (true) { 0 } 0 }

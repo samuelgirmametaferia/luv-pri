@@ -1,0 +1,5 @@
+// RSS Test: speculative 1
+fn main() {
+    ![speculative] fn f() { unique x = 10; commit(); }
+    0
+}

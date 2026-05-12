@@ -1,0 +1,34 @@
+fn main() {
+    mut x = 0;
+    {
+        mut x = 1;
+        {
+            mut x = 2;
+            {
+                mut x = 3;
+                {
+                    mut x = 4;
+                    {
+                        mut x = 5;
+                        {
+                            mut x = 6;
+                            {
+                                mut x = 7;
+                                {
+                                    mut x = 8;
+                                    {
+                                        mut x = 9;
+                                        {
+                                            mut x = 10;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @println(x)
+}

@@ -1,0 +1,5 @@
+// should error
+fn main() {
+    mut x = 5;
+    mut s = x as string;
+}

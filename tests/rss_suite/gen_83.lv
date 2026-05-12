@@ -1,0 +1,6 @@
+// RSS Generated Test 83 (Category: speculative)
+fn main() {
+    unique x_83 = 83;
+    rc_shared y_83 = x_83;
+    0
+}

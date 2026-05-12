@@ -1,0 +1,21 @@
+# Test: Various Semantic Errors (should error)
+
+fn main() {
+    # 1. Type mismatch in assignment
+    # mut x: int = "string"
+    
+    # 2. Use of undefined variable
+    # y = z + 1
+    
+    # 3. Calling non-function
+    # not_a_func = 5
+    # not_a_func()
+    
+    # 4. Returning wrong type
+    # fn wrong_ret() -> int { return "oops" }
+    
+    # For now just one clear error to verify the test suite picks it up
+    z = undefined_var + 1
+    
+    0
+}

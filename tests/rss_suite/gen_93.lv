@@ -1,0 +1,6 @@
+// RSS Generated Test 93 (Category: sao_tag)
+fn main() {
+    unique x_93 = 93;
+    unique y_93 = x_93;
+    0
+}

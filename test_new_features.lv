@@ -1,0 +1,38 @@
+struct Point {
+    x: i32
+    y: i32
+}
+
+fn main() {
+    // Optional struct keyword
+    p = Point { x: 10, y: 20 }
+    println(&"p.x: {p.x}, p.y: {p.y}")
+
+    // Match with keyword
+    res = match p.x {
+        10 => "ten",
+        _ => "not ten"
+    }
+    println(&"res: {res}")
+
+    // Wide numeric types
+    a: i128 = 100
+    b: i256 = 200
+    c: i512 = 300
+    println(&"a + b + c = {a + b + c}")
+
+    // Bitmasking
+    x = 0b1010
+    bit0 = x.0
+    bit1 = x.1
+    println(&"x: {x}, bit0: {bit0}, bit1: {bit1}")
+
+    // Asm with rtn
+    // val = asm { "mov $42, %0" rtn 0 }
+    // println(&"asm val: {val}")
+
+    // string += char
+    s = "Hello"
+    s += '!'
+    println(s)
+}

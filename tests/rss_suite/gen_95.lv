@@ -1,0 +1,6 @@
+// RSS Generated Test 95 (Category: psf_stress)
+fn main() {
+    unique x_95 = 95;
+    rc_shared y_95 = x_95;
+    0
+}

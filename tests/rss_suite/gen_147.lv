@@ -1,0 +1,6 @@
+// RSS Generated Test 147 (Category: speculative)
+fn main() {
+    unique x_147 = 147;
+    unique y_147 = x_147;
+    0
+}

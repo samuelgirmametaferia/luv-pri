@@ -1,0 +1,6 @@
+// RSS Generated Test 30 (Category: interprocedural)
+fn main() {
+    unique x_30 = 30;
+    unique y_30 = x_30;
+    0
+}

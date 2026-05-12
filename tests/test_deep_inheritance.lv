@@ -1,0 +1,16 @@
+# Test: Deep Inheritance
+class A {
+    pub fn name(self: A) : string { return "A" }
+}
+class B : A {
+    override pub fn name(self: B) : string { return "B" }
+}
+class C : B {
+    override pub fn name(self: C) : string { return "C" }
+}
+
+main() {
+    mut obj: A = C()
+    @println("Name: ", obj.name())
+    0
+}

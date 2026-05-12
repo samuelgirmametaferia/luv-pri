@@ -1,0 +1,2 @@
+// RSS Test: escape 0
+fn f() : unique { unique x = 10; return x; } fn main() { f(); 0 } // escape to caller

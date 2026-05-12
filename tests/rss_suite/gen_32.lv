@@ -1,0 +1,6 @@
+// RSS Generated Test 32 (Category: linearity)
+fn main() {
+    unique x_32 = 32;
+    rc_shared y_32 = x_32;
+    0
+}

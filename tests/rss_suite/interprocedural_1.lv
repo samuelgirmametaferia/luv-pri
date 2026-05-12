@@ -1,0 +1,6 @@
+// RSS Test: interprocedural 1
+// should error
+fn main() {
+    fn impure_f(unique x) { printf("%d", x); } fn g() { unique x = 10; impure_f(x); x; // should error }
+    0
+}

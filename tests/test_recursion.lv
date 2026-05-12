@@ -1,0 +1,19 @@
+# Test: Recursion (Factorial)
+fn factorial(n: int) : int {
+    if n <= 1 {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}
+
+main() {
+    res = factorial(5)
+    @println("Factorial of 5 is: ", res)
+    if res == 120 {
+        @println("PASS")
+    } else {
+        @println("FAIL")
+    }
+    0
+}

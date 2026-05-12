@@ -1,0 +1,6 @@
+// RSS Generated Test 165 (Category: sao_tag)
+fn main() {
+    unique x_165 = 165;
+    unique y_165 = x_165;
+    0
+}

@@ -1,0 +1,6 @@
+// RSS Generated Test 150 (Category: interprocedural)
+fn main() {
+    unique x_150 = 150;
+    unique y_150 = x_150;
+    0
+}

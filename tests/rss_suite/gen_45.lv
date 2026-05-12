@@ -1,0 +1,6 @@
+// RSS Generated Test 45 (Category: sao_tag)
+fn main() {
+    unique x_45 = 45;
+    unique y_45 = x_45;
+    0
+}

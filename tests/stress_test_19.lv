@@ -1,0 +1,9 @@
+// should error
+class C {
+    x: int
+    static fn s() {
+        self.i();
+    }
+    fn i() {}
+}
+fn main() {}

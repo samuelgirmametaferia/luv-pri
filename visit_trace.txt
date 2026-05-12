@@ -1,0 +1,44 @@
+Semantic: Analyzing module gm (11 statements)
+Sema: registerTopLevel N3luv7VarDeclE
+Sema: registerTopLevel N3luv10StructDeclE
+Sema: registerTopLevel N3luv8FuncDeclE
+Sema: registerTopLevel N3luv8FuncDeclE
+Sema: registerTopLevel N3luv8FuncDeclE
+Sema: registerTopLevel N3luv8FuncDeclE
+Sema: registerTopLevel N3luv8FuncDeclE
+Sema: registerTopLevel N3luv8FuncDeclE
+Sema: registerTopLevel N3luv7VarDeclE
+Sema: registerTopLevel N3luv7VarDeclE
+Sema: registerTopLevel N3luv8ExprStmtE
+Sema: analyzeStmt N3luv7VarDeclE
+Sema: analyzeStmt N3luv10StructDeclE
+Sema: analyzeStmt N3luv8FuncDeclE
+Sema: analyzeStmt N3luv8ExprStmtE
+Sema: analyzeStmt N3luv8FuncDeclE
+Sema: analyzeStmt N3luv8ExprStmtE
+Sema: analyzeStmt N3luv8FuncDeclE
+Sema: analyzeStmt N3luv8ExprStmtE
+Sema: analyzeStmt N3luv8FuncDeclE
+Sema: analyzeStmt N3luv8ExprStmtE
+[1;37m[1;33mwarning[UndefinedVariable]: [0m[1;37mParameter 'v' is declared but never used in function 'sqrtS'[0m
+Sema: analyzeStmt N3luv8FuncDeclE
+Sema: analyzeStmt N3luv7VarDeclE
+Sema: analyzeStmt N3luv8ExprStmtE
+Sema: analyzeStmt N3luv8ExprStmtE
+Sema: analyzeStmt N3luv10ReturnStmtE
+Sema: analyzeStmt N3luv8FuncDeclE
+Sema: analyzeStmt N3luv10ReturnStmtE
+Semantic: Inferred return type for length as float
+Sema: analyzeStmt N3luv7VarDeclE
+Sema: analyzeStmt N3luv7VarDeclE
+Sema: analyzeStmt N3luv8ExprStmtE
+CodeGen: Function vec2_operator+ returns vec2 with 2 args
+CodeGen: Function vec2_operator- returns vec2 with 2 args
+CodeGen: Function vec2_operator* returns vec2 with 2 args
+CodeGen: Function sqrtS returns int with 2 args
+CodeGen: Function sqrt returns float with 1 args
+CodeGen: Function length returns float with 1 args
+[1;37m[1;31merror[CodeGenError]: [0m[1;37mNull LEFT operand in BinaryExpr: /[0m
+[1;31mCompilation aborted during code generation phase.[0m
+
+[1;31m1 error[0m, [1;33m1 warning[0m generated.

@@ -1,0 +1,6 @@
+// RSS Generated Test 168 (Category: linearity)
+fn main() {
+    unique x_168 = 168;
+    unique y_168 = x_168;
+    0
+}

@@ -1,0 +1,6 @@
+// RSS Generated Test 179 (Category: speculative)
+fn main() {
+    unique x_179 = 179;
+    rc_shared y_179 = x_179;
+    0
+}

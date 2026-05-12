@@ -1,0 +1,6 @@
+// RSS Generated Test 130 (Category: aliasing)
+fn main() {
+    unique x_130 = 130;
+    lent y_130 = x_130;
+    0
+}

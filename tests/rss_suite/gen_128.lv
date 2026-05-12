@@ -1,0 +1,6 @@
+// RSS Generated Test 128 (Category: linearity)
+fn main() {
+    unique x_128 = 128;
+    rc_shared y_128 = x_128;
+    0
+}

@@ -1,0 +1,6 @@
+// RSS Generated Test 196 (Category: degradation)
+fn main() {
+    unique x_196 = 196;
+    lent y_196 = x_196;
+    0
+}

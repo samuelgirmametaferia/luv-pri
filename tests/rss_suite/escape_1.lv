@@ -1,0 +1,5 @@
+// RSS Test: escape 1
+fn main() {
+    unique global_x = 10; fn f(unique x) { global_x = x; } // escape to global
+    0
+}

@@ -1,0 +1,2 @@
+// RSS Test: aliasing 0
+fn main() { unique x = 10; lent y = x; lent z = x; 0 } // multiple lent aliases

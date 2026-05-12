@@ -1,0 +1,5 @@
+fn main() {
+    mut x: int?? = nen;
+    mut y: int?? = 5;
+    @println(1);
+}

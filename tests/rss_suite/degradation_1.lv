@@ -1,0 +1,2 @@
+// RSS Test: degradation 1
+![tier3] fn main() { unique x = 10; 0 }

@@ -1,0 +1,24 @@
+# Test: Advanced Array Operations (Slicing and Repeat)
+main() {
+    # Array repeat syntax
+    # mut arr = [0; 5] # Currently might not be supported in parser as [type; expr]
+    
+    # Manual initialization for now if repeat is brittle
+    mut arr = [1, 2, 3, 4, 5]
+    
+    # Slicing
+    sub = arr[1..4]
+    @println("Slice len: ", sub.len)
+    
+    # For-in loop
+    for x in arr {
+        @println("Element: ", x)
+    }
+    
+    # For-range loop
+    for i in 0..5 {
+        @println("Index: ", i)
+    }
+    
+    0
+}

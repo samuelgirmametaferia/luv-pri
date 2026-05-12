@@ -1,0 +1,6 @@
+// RSS Generated Test 50 (Category: aliasing)
+fn main() {
+    unique x_50 = 50;
+    rc_shared y_50 = x_50;
+    0
+}

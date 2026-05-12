@@ -1,0 +1,32 @@
+# Test: Chained Assignments
+main() {
+    mut a = 0
+    mut b = 0
+    mut c = 0
+    
+    # Simple chain
+    a = b = c = 42
+    
+    @println("a=", a, " b=", b, " c=", c)
+    if a == 42 && b == 42 && c == 42 {
+        @println("PASS: a = b = c = 42")
+    } else {
+        @println("FAIL")
+    }
+    
+    # Mixed chain with comparison
+    # a = b != c
+    # This should evaluate (b != c) and assign the boolean result to a
+    b = 10
+    c = 20
+    a = b != c
+    
+    @println("a (bool result) = ", a)
+    if a == true {
+        @println("PASS: a = b != c")
+    } else {
+        @println("FAIL")
+    }
+    
+    0
+}

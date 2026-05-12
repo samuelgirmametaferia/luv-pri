@@ -1,0 +1,31 @@
+# Test: Multiple Interfaces
+interface Drawable {
+    fn draw(self)
+}
+interface Resizable {
+    fn resize(self, factor: float)
+}
+
+class Shape : Drawable, Resizable {
+    override fn draw(self) {
+        @println("Drawing shape")
+    }
+    override fn resize(self, factor: float) {
+        @println("Resizing shape by ", factor)
+    }
+}
+
+main() {
+    s = Shape()
+    s.draw()
+    s.resize(1.5)
+    
+    # Dynamic dispatch via interface
+    mut d: Drawable = s
+    d.draw()
+    
+    mut r: Resizable = s
+    r.resize(2.0)
+    
+    0
+}

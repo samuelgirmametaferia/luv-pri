@@ -1,0 +1,6 @@
+// RSS Generated Test 37 (Category: sao_tag)
+fn main() {
+    unique x_37 = 37;
+    lent y_37 = x_37;
+    0
+}

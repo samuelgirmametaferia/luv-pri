@@ -1,0 +1,6 @@
+// RSS Generated Test 116 (Category: degradation)
+fn main() {
+    unique x_116 = 116;
+    rc_shared y_116 = x_116;
+    0
+}

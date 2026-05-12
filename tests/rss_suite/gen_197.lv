@@ -1,0 +1,6 @@
+// RSS Generated Test 197 (Category: sao_tag)
+fn main() {
+    unique x_197 = 197;
+    rc_shared y_197 = x_197;
+    0
+}

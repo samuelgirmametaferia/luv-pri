@@ -1,0 +1,6 @@
+// RSS Generated Test 14 (Category: interprocedural)
+fn main() {
+    unique x_14 = 14;
+    rc_shared y_14 = x_14;
+    0
+}

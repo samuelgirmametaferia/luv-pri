@@ -1,0 +1,2 @@
+// RSS Test: interprocedural 0
+fn pure_f(unique x) : unique { return x; } fn main() { unique x = 10; unique y = pure_f(x); 0 }

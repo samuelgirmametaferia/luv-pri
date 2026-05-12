@@ -1,0 +1,9 @@
+class Loader {
+    fn next() : Loader { return self }
+    fn finish() : int { return 42 }
+}
+fn main() {
+    mut l = Loader {};
+    mut x = l.next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().finish();
+    @println(x)
+}

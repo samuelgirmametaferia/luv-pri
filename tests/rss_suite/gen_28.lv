@@ -1,0 +1,6 @@
+// RSS Generated Test 28 (Category: degradation)
+fn main() {
+    unique x_28 = 28;
+    lent y_28 = x_28;
+    0
+}

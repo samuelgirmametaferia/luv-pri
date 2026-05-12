@@ -1,0 +1,5 @@
+fn main() {
+    mut x: dyn = 5;
+    x = "hello";
+    @println(1);
+}

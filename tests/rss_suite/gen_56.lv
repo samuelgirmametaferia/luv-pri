@@ -1,0 +1,6 @@
+// RSS Generated Test 56 (Category: linearity)
+fn main() {
+    unique x_56 = 56;
+    rc_shared y_56 = x_56;
+    0
+}

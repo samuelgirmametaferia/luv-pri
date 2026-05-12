@@ -1,0 +1,6 @@
+// RSS Generated Test 192 (Category: linearity)
+fn main() {
+    unique x_192 = 192;
+    unique y_192 = x_192;
+    0
+}

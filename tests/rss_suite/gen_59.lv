@@ -1,0 +1,6 @@
+// RSS Generated Test 59 (Category: speculative)
+fn main() {
+    unique x_59 = 59;
+    rc_shared y_59 = x_59;
+    0
+}

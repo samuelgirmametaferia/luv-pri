@@ -1,0 +1,6 @@
+// RSS Generated Test 125 (Category: sao_tag)
+fn main() {
+    unique x_125 = 125;
+    rc_shared y_125 = x_125;
+    0
+}

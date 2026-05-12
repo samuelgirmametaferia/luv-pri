@@ -1,0 +1,15 @@
+# Test: Empty Elements
+fn empty_fn() {}
+
+main() {
+    empty_fn()
+    
+    mut arr = []
+    @println("Empty array len: ", arr.len)
+    
+    if true {} else {}
+    
+    while false {}
+    
+    0
+}

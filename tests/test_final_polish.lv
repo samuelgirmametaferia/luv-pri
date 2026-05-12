@@ -1,0 +1,12 @@
+fn main() {
+    @println("Line 1\nLine 2\tTabbed\bBackspace\rCarriageReturn\\Backslash\"Quote\'SingleQuote\n")
+    
+    # Test tuple destructuring in assignment
+    mut a, b = (10, 20)
+    @println("a=%d b=%d\n", a, b)
+    
+    a, b = (30, 40)
+    @println("after reassignment: a=%d b=%d\n", a, b)
+    
+    0
+}

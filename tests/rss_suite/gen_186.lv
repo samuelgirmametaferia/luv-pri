@@ -1,0 +1,6 @@
+// RSS Generated Test 186 (Category: aliasing)
+fn main() {
+    unique x_186 = 186;
+    unique y_186 = x_186;
+    0
+}

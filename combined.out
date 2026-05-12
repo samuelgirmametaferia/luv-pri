@@ -1,0 +1,1776 @@
+
+
+fn main(): int {
+    # ═══════════════════════════════════════════════
+    # 1. Array literal with type inference
+    # ═══════════════════════════════════════════════
+    mut arr = [10, 20, 30]
+    @println("=== 1. Array Literal ===\n")
+    @println("arr[0]=%d arr[1]=%d arr[2]=%d\n", arr[0], arr[1], arr[2])
+
+    # ═══════════════════════════════════════════════
+    # 2. Array .len / .cap properties
+    # ═══════════════════════════════════════════════
+    @println("\n=== 2. Properties ===\n")
+    @println("arr.len=%lld arr.cap=%lld\n", arr.len, arr.cap)
+
+    # ═══════════════════════════════════════════════
+    # 3. Array index assignment (mutation)
+    # ═══════════════════════════════════════════════
+    @println("\n=== 3. Index Assignment ===\n")
+    arr[1] = 99
+    @println("arr[1] after mutation = %d\n", arr[1])
+
+    # ═══════════════════════════════════════════════
+    # 4. If with array element
+    # ═══════════════════════════════════════════════
+    @println("\n=== 4. If on Array Element ===\n")
+    if arr[1] == 99 {
+        @println("arr[1] is 99 - OK\n")
+    }
+    if arr[0] == 10 {
+        @println("arr[0] is 10 - OK\n")
+    }
+
+    # ═══════════════════════════════════════════════
+    # 5. For-in loop over array
+    # ═══════════════════════════════════════════════
+    @println("\n=== 5. For-in Loop ===\n")
+    for v in arr {
+        @println("  elem: %d\n", v)
+    }
+
+    # ═══════════════════════════════════════════════
+    # 6. Match on array element
+    # ═══════════════════════════════════════════════
+    @println("\n=== 6. Match ===\n")
+    match arr[2] {
+        30 => @println("matched 30 OK\n"),
+        _ => @println("FAIL\n")
+    }
+    match arr[0] {
+        10 => @println("matched 10 OK\n"),
+        20 => @println("FAIL\n"),
+        _ => @println("FAIL\n")
+    }
+
+    # ═══════════════════════════════════════════════
+    # 7. Repeat-array with compile-time count
+    # ═══════════════════════════════════════════════
+    @println("\n=== 7. Repeat Array ===\n")
+    mut zeros = [0; 5]
+    @println("zeros.len=%lld zeros[3]=%d\n", zeros.len, zeros[3])
+
+    mut fives = [5; 3]
+    @println("fives.len=%lld fives[0]=%d fives[2]=%d\n", fives.len, fives[0], fives[2])
+
+    # ═══════════════════════════════════════════════
+    # 8. Tuple creation & destructuring
+    # ═══════════════════════════════════════════════
+    @println("\n=== 8. Tuple Destructuring ===\n")
+}
+use add from math
+use @ from math
+
+main() {
+    x = add(10, 5)
+    printf("Result: %d\n", x)
+    printf("PI is %f\n", PI)
+    printf("K is %d\n", E)
+    0
+}
+main() {
+    a = 10
+    b = 20
+    c = (a + b) * 2
+    printf("Result: %d\n", c)
+    0
+}
+# ─────────────────────────────────────────────────────────
+#  Luv FFI Demo — C, C++, and Rust interop
+#
+#  Syntax summary:
+#    extern fn <name>(...): <type>           → C ABI (default)
+#    extern "C" fn <name>(...): <type>       → Explicit C ABI
+#    extern "C++" fn <name>(...): <type>     → C++ ABI (Itanium mangling)
+#    extern "Rust" fn <name>(...): <type>    → Rust ABI (extern "C" convention)
+# ─────────────────────────────────────────────────────────
+
+# ── C FFI: Standard library ──────────────────────────────
+extern "C" fn puts(s: string): int
+extern "C" fn printf(fmt: string): int
+
+# ── C++ FFI (Itanium mangled): link against a C++ library ──
+# Declares: int add(int, int) — mangled to _Z3addii
+extern "C++" fn add(a: int, b: int): int
+
+# ── Rust FFI (via extern "C" bridge): link against a Rust static lib ──
+# The Rust side must use: #[no_mangle] pub extern "C" fn rust_multiply(...)
+extern "Rust" fn rust_multiply(a: int, b: int): int
+
+fn main(): int {
+    puts("=== Luv FFI Demo ===")
+
+    # C ABI call
+    printf("C FFI: puts() called above\n")
+
+    # C++ ABI call
+    x: int = add(5, 7)
+    printf("C++ FFI: add(5, 7) = %d\n")
+
+    # Rust ABI call  
+    y: int = rust_multiply(6, 7)
+    printf("Rust FFI: rust_multiply(6, 7) = %d\n")
+
+    return 0
+}
+add(a: int, b: int) -> a+b
+sub(a: int, b: int) -> b-a
+
+
+main() {
+    const PI = 3.1415
+    printf("PI: %f\n", PI)
+    sum = add(5, 7)
+    printf("Sum: %d\n", sum)
+    0
+}
+
+fn main() {
+    printf("Hello, World!\n")
+    0
+}
+main() {
+    x = 42
+    if x > 50 {
+        printf("Greater than 50\n")
+    } ef x > 10 {
+        printf("Greater than 10\n")
+    } else {
+        printf("Less or equal 10\n")
+    }
+    0
+}
+main() {
+    for i in 0 .. 5 {
+        printf("i = %d\n", i)
+    }
+    for i in 0...5 {
+        printf("i = %d\n", i)
+    }
+    
+    0
+
+}
+module math
+
+pub fn add(a: int, b: int) -> a+b
+priv fn sub(a: int, b: int) -> a-b
+
+pub PI = 3.1415
+priv E = 2.7182
+main() {
+    cake = "
+    Treat me like yt
+    "
+    0
+}fn factorial(n: int): int {
+    if n <= 1 { 
+        return 1
+    } else { 
+        return n * factorial(n - 1) 
+    }
+}
+
+add(a,b,c) -> a+b+c
+main() {
+    res: int = factorial(5)
+    res: int = add(1,2,3)
+    printf("Factorial of 5: %d\n", res)
+    0
+}
+# Luv Package Imports
+# Add packages and external modules here so they are automatically available.
+
+module my_luv_project_deps
+extern fn printf(fmt: string): int
+
+main() {
+    printf("Hello from %s!\n", "my_luv_project")
+    0
+}
+# Luv Package Imports
+# Add packages and external modules here so they are automatically available.
+
+module pimp_deps
+fn main(): int {
+    x: int = 10
+    y: int = match x {
+        5 => 100,
+        10 => 200,
+        _ => 300
+    }
+    
+    @print("Match result: ")
+    @print(y)
+    @print("\n")
+    return 0
+}
+extern fn printf(fmt: string): int
+
+main() {
+    printf("Hello from %s!\n", "proj")
+    0
+}
+fn main() { @println("hello") }
+extern fn printf(fmt: string): int
+
+main() {
+    printf("Hello from Luv on Android!\n")
+    0
+}
+extern "C" fn malloc(size: u64): ptr
+extern "C" fn strlen(s: ptr): i64
+extern "C" fn strcpy(dest: ptr, src: ptr): ptr
+extern "C" fn strcat(dest: ptr, src: ptr): ptr
+extern "C" fn strstr(haystack: ptr, needle: ptr): ptr
+extern "C" fn strncmp(s1: ptr, s2: ptr, n: u64): i32
+extern "C" fn toupper(c: i32): i32
+extern "C" fn tolower(c: i32): i32
+
+fn length(s: string): i64 {
+    return strlen(s as! ptr);
+}
+
+fn string_concat(s1: string, s2: string): string {
+    if s1 == nen { return s2; }
+    if s2 == nen { return s1; }
+    
+    len1: i64 = length(s1);
+    len2: i64 = length(s2);
+    
+    total: u64 = (len1 + len2 + 1) as! u64;
+    res: ptr = malloc(total);
+    
+    strcpy(res, s1 as! ptr);
+    strcat(res, s2 as! ptr);
+    
+    return res as! string;
+}
+
+fn append_char(s: string, c: char): string {
+    len: i64 = s == nen ? 0 : length(s);
+    res_ptr: ptr = malloc((len + 2) as! u64);
+    
+    if s != nen {
+        strcpy(res_ptr, s as! ptr);
+    }
+    
+    # Store char at the end
+    addr: u64 = (res_ptr as! u64) + (len as! u64);
+    target: ptr = addr as! ptr;
+    
+    # Use asm to store the byte
+    asm { "movb %1, (%0)" (target, c) };
+    
+    # Null terminator
+    target_next: ptr = (addr + 1) as! ptr;
+    asm { "movb $0, (%0)" (target_next) };
+    
+    return res_ptr as! string;
+}
+
+fn index_of(s: string, sub: string): i64 {
+    if s == nen or sub == nen { return -1; }
+    
+    res: ptr = strstr(s as! ptr, sub as! ptr);
+    if res == nen { return -1; }
+    
+    return (res as! u64 - s as! u64) as! i64;
+}
+
+fn starts_with(s: string, prefix: string): bool {
+    if s == nen or prefix == nen { return false; }
+    lp: i64 = length(prefix);
+    if lp > length(s) { return false; }
+    
+    return strncmp(s as! ptr, prefix as! ptr, lp as! u64) == 0;
+}
+
+fn to_upper(s: string): string {
+    if s == nen { return s; }
+    l: i64 = length(s);
+    res: ptr = malloc((l + 1) as! u64);
+    strcpy(res, s as! ptr);
+    
+    i: i64 = 0;
+    while i < l {
+        addr: u64 = (res as! u64) + (i as! u64);
+        ch: i32 = asm { "movsbq (%1), %0" (addr as! ptr) rtn 0 } as! i32;
+        up: i32 = toupper(ch);
+        asm { "movb %1, (%0)" (addr as! ptr, up as! i8) };
+        i++;
+    }
+    return res as! string;
+}
+
+fn to_lower(s: string): string {
+    if s == nen { return s; }
+    l: i64 = length(s);
+    res: ptr = malloc((l + 1) as! u64);
+    strcpy(res, s as! ptr);
+    
+    i: i64 = 0;
+    while i < l {
+        addr: u64 = (res as! u64) + (i as! u64);
+        ch: i32 = asm { "movsbq (%1), %0" (addr as! ptr) rtn 0 } as! i32;
+        lo: i32 = tolower(ch);
+        asm { "movb %1, (%0)" (addr as! ptr, lo as! i8) };
+        i++;
+    }
+    return res as! string;
+}
+fn main() {
+    var flags: u8 = 0
+    flags.0 = true
+    flags.2 = true
+    println(&"flags: {flags}")
+}
+fn main() {
+    b = b"Hello"
+    print(b[0])
+    print(b[1])
+    println("")
+}
+struct Point {
+    x: i32
+    y: i32
+}
+
+fn main() {
+    p = Point { x: 10, y: 20 };
+    println(&"p.x: {p.x}, p.y: {p.y}");
+
+    match p.x {
+        10 => println("ten"),
+        _ => println("not ten")
+    };
+
+    i = 0;
+    loop {
+        if i >= 5 { break; }
+        print(&"{i} ");
+        i++;
+    };
+    println("");
+
+    j = 0;
+    while j < 5 {
+        if j == 2 { 
+            j++;
+            continue;
+        }
+        print(&"{j} ");
+        j++;
+    } continue {
+        println(" (iteration end)");
+    }
+
+    for 0..3 {
+        println("Repeating...");
+    }
+
+    var flags: u8 = 0;
+    flags.0 = true;
+    flags.2 = true;
+    println(&"flags: {flags}");
+
+    # String += char
+    var s = "luv";
+    s += '!';
+    println(s);
+    
+    # tnt type (arbitrary precision)
+    var big: tnt = 1000000000000000000000000000000000;
+    println("big tnt value works!");
+
+    # Bytes literal
+    data = b"raw data";
+    println("Bytes are byte-complete now!");
+}
+struct Point {
+    x: i32
+    y: i32
+}
+
+fn main() {
+    // Optional struct keyword
+    p = Point { x: 10, y: 20 }
+    println(&"p.x: {p.x}, p.y: {p.y}")
+
+    // Match with keyword
+    res = match p.x {
+        10 => "ten",
+        _ => "not ten"
+    }
+    println(&"res: {res}")
+
+    // Wide numeric types
+    var a: i128 = 100
+    var b: i256 = 200
+    var c: i512 = 300
+    println(&"a + b + c = {a + b + c}")
+
+    // Bitmasking
+    x = 0b1010
+    bit0 = x.0
+    bit1 = x.1
+    println(&"x: {x}, bit0: {bit0}, bit1: {bit1}")
+
+    // Asm with rtn
+    // val = asm { "mov $42, %0" rtn 0 }
+    // println(&"asm val: {val}")
+
+    // string += char
+    var s = "Hello"
+    s += '!'
+    println(s)
+}
+
+
+fn main(): int {
+    # ═══════════════════════════════════════════════
+    # 1. Array literal with type inference
+    # ═══════════════════════════════════════════════
+    mut arr = [10, 20, 30]
+    @println("=== 1. Array Literal ===\n")
+    @println("arr[0]=%d arr[1]=%d arr[2]=%d\n", arr[0], arr[1], arr[2])
+
+    # ═══════════════════════════════════════════════
+    # 2. Array .len / .cap properties
+    # ═══════════════════════════════════════════════
+    @println("\n=== 2. Properties ===\n")
+    @println("arr.len=%lld arr.cap=%lld\n", arr.len, arr.cap)
+
+    # ═══════════════════════════════════════════════
+    # 3. Array index assignment (mutation)
+    # ═══════════════════════════════════════════════
+    @println("\n=== 3. Index Assignment ===\n")
+    arr[1] = 99
+    @println("arr[1] after mutation = %d\n", arr[1])
+
+    # ═══════════════════════════════════════════════
+    # 4. If with array element
+    # ═══════════════════════════════════════════════
+    @println("\n=== 4. If on Array Element ===\n")
+    if arr[1] == 99 {
+        @println("arr[1] is 99 - OK\n")
+    }
+    if arr[0] == 10 {
+        @println("arr[0] is 10 - OK\n")
+    }
+
+    # ═══════════════════════════════════════════════
+    # 5. For-in loop over array
+    # ═══════════════════════════════════════════════
+    @println("\n=== 5. For-in Loop ===\n")
+    for v in arr {
+        @println("  elem: %d\n", v)
+    }
+
+    # ═══════════════════════════════════════════════
+    # 6. Match on array element
+    # ═══════════════════════════════════════════════
+    @println("\n=== 6. Match ===\n")
+    match arr[2] {
+        30 => @println("matched 30 OK\n"),
+        _ => @println("FAIL\n")
+    }
+    match arr[0] {
+        10 => @println("matched 10 OK\n"),
+        20 => @println("FAIL\n"),
+        _ => @println("FAIL\n")
+    }
+
+    # ═══════════════════════════════════════════════
+    # 7. Repeat-array with compile-time count
+    # ═══════════════════════════════════════════════
+    @println("\n=== 7. Repeat Array ===\n")
+    mut zeros = [0; 5]
+    @println("zeros.len=%lld zeros[3]=%d\n", zeros.len, zeros[3])
+
+    mut fives = [5; 3]
+    @println("fives.len=%lld fives[0]=%d fives[2]=%d\n", fives.len, fives[0], fives[2])
+
+    # ═══════════════════════════════════════════════
+    # 8. Tuple creation & destructuring
+    # ═══════════════════════════════════════════════
+    @println("\n=== 8. Tuple Destructuring ===\n")
+    mut a, b, c = (42, 100, 7)
+    @println("a=%d b=%d c=%d\n", a, b, c)
+
+    # ═══════════════════════════════════════════════
+    # 9. Tuple with mixed types
+    # ═══════════════════════════════════════════════
+    @println("\n=== 9. Mixed Tuple ===\n")
+    mut tup = (1, 2, 3)
+    @println("tup.0=%d tup.1=%d tup.2=%d\n", tup)
+
+    # ═══════════════════════════════════════════════
+    # 10. Slicing
+    # ═══════════════════════════════════════════════
+    @println("\n=== 10. Slicing ===\n")
+    mut sl = arr[0..2]
+    @println("slice.len=%lld\n", sl.len)
+    @println("slice[0]=%d slice[1]=%d\n", sl[0], sl[1])
+
+    # ═══════════════════════════════════════════════
+    # 11. Nested array in for loop with if
+    # ═══════════════════════════════════════════════
+    @println("\n=== 11. For + If Integration ===\n")
+    mut nums = [1, 2, 3, 4, 5]
+    for n in nums {
+        if n == 3 {
+            @println("  found 3!\n")
+        }
+    }
+
+    # ═══════════════════════════════════════════════
+    # 12. Array of same values with mutation
+    # ═══════════════════════════════════════════════
+    @println("\n=== 12. Mutate Repeat Array ===\n")
+    mut buf = [0; 4]
+    buf[0] = 10
+    buf[1] = 20
+    buf[2] = 30
+    buf[3] = 40
+    for val in buf {
+        @println("  buf: %d\n", val)
+    }
+
+    @println("\nAll tests passed!\n")
+    return 0
+}
+const g = 9.8
+
+vec2 {
+    x: float
+    y: float
+}
+
+vec2 +(a: vec2, b: vec2): vec2 {
+    vec2 { x: a.x + b.x, y: a.y + b.y }
+}
+
+vec2 -(a: vec2, b: vec2): vec2 {
+    vec2 { x: a.x - b.x, y: a.y - b.y }
+}
+vec2 *(a: vec2, b: vec2): vec2 {
+    vec2 { x: a.x * b.x, y: a.y * b.y }
+}
+
+sqrtS(x_g: float, v: float){
+    x_g = ((x_g)*(x_g)+v)/(2*x_g)
+}
+sqrt(a: float): float {
+    mut x_g = 0
+    for i in 0..100{
+        sqrtS(x_g, a)
+    }
+    return x_g
+}
+
+length(a:vec2){
+    return sqrt(a.x * a.x + a.y * a.y)
+}
+
+a : vec2 = vec2 {x: 10, y: 10}
+b : vec2 = vec2 {x: 45, y: 5}
+
+@println("|x| = %f, |y| = %f, A(x,y) = (%f,%f), B(x,y) = (%f,%f), C= A+B = (%f,%f)", length(a),length(b),a.x,a.y,b.x,b.y,(a+b).x,(a+b).y)extern "C" fn malloc(size: u64): ptr
+extern "C" fn strcpy(dest: ptr, src: ptr): ptr
+
+fn main() {
+    s = "hello"
+    res = malloc(10 as! u64)
+    strcpy(res, s as! ptr)
+    var i = 0
+    println("done")
+}
+fn main() {
+    println("step 1")
+    println("step 2")
+    var x = 10
+    println("step 3")
+}
+
+
+abstract class Shape {
+    fn draw(self: Shape) {
+        @println("Drawing shape\n")
+    }
+}
+
+class Circle : Shape {
+    override pub fn draw(self: Circle) {
+        @println("Drawing circle\n")
+    }
+}
+fn main() {
+    c: Circle = Circle()
+    c.draw()
+    # s: Shape = Shape() # This would fail at compile time
+    0
+}
+# Test: wrong argument count (should error)
+fn add(a: int, b: int) -> a + b
+
+main() {
+    x = add(1, 2, 3)
+    0
+}
+fn main() {
+    # Range-based comprehension
+    squares = [x * x for x in 0..10]
+    @println("Squares of 0..9:")
+    for s in squares {
+        @println("  %d", s)
+    }
+
+    # Iterable-based comprehension
+    doubles = [s * 2 for s in squares]
+    @println("\nDoubles of squares:")
+    for d in doubles {
+        @println("  %d", d)
+    }
+    0
+}
+
+
+fn int_double(val: int): int {
+    return val * 2
+}
+
+main() {
+    # 1. Safe Cast
+    x = 42
+    y = x as float
+    @println("42 as float: %f\n", y)
+
+    # safe cast truncation should warn during compile
+    big = 100000000000
+    small = big |> i32
+
+    # 2. Forced Cast
+    # force bitcast float to int (reinterpreting bits)
+    f = 3.14159
+    bits = f as! i64
+    @println("3.14159 bitcasted to i64: %ld\n", bits)
+
+    # 3. Built-in toString
+    s = x.toString()
+    @println("x.toString() = '%s'\n", s)
+
+    # 4. Custom Property/Method injection
+    # We defined int_double above! So we can call .double() on any int!
+    d = 10.double()
+    @println("10.double() = %d\n", d)
+
+    0
+}
+
+
+# ── Basic class declaration, init, methods, property access ──
+
+class Person {
+    pub name: string
+    pub age: int
+
+    fn init(self: Person, name: string, age: int) {
+        self.name = name
+        self.age = age
+    }
+
+    pub fn greet(self: Person) {
+        @println("Hi, I'm %s and I'm %d years old\n", self.name, self.age)
+    }
+
+    pub fn birthday(self: Person) {
+        self.age = self.age + 1
+    }
+}
+
+main() {
+    p = Person("Dagim", 25)
+    p.greet()
+    p.birthday()
+    p.greet()
+    @println("Name: %s\n", p.name)
+    @println("Age: %d\n", p.age)
+    0
+}
+
+
+# ── Single inheritance with field + method inheritance ──
+
+class Vehicle {
+    pub brand: string
+    pub speed: int
+
+    fn init(self: Vehicle, brand: string, speed: int) {
+        self.brand = brand
+        self.speed = speed
+    }
+
+    pub fn honk(self: Vehicle) {
+        @println("%s goes BEEP!\n", self.brand)
+    }
+}
+
+class Car : Vehicle {
+    pub doors: int
+
+    fn init(self: Car, brand: string, speed: int, doors: int) {
+        self.brand = brand
+        self.speed = speed
+        self.doors = doors
+    }
+
+    pub fn info(self: Car) {
+        @println("%s: %d doors, %d km/h\n", self.brand, self.doors, self.speed)
+    }
+}
+
+class ElectricCar : Car {
+    pub battery: int
+
+    fn init(self: ElectricCar, brand: string, speed: int, doors: int, battery: int) {
+        self.brand = brand
+        self.speed = speed
+        self.doors = doors
+        self.battery = battery
+    }
+
+    pub fn charge(self: ElectricCar) {
+        @println("Charging %s (%d%% battery)\n", self.brand, self.battery)
+    }
+}
+
+main() {
+    v = Vehicle("Horn Co", 60)
+    v.honk()
+
+    c = Car("Toyota", 180, 4)
+    c.info()
+    c.honk()
+
+    e = ElectricCar("Tesla", 250, 4, 85)
+    e.charge()
+    e.info()
+    e.honk()
+    @println("Battery: %d%%\n", e.battery)
+    0
+}
+
+
+# ── Interface declaration ──
+
+interface Drawable {
+    fn draw(self: Drawable)
+}
+
+interface Resizable {
+    fn resize(self: Resizable, factor: int)
+}
+
+class Circle {
+    pub radius: int
+
+    fn init(self: Circle, r: int) {
+        self.radius = r
+    }
+
+    pub fn draw(self: Circle) {
+        @println("Drawing circle with radius %d\n", self.radius)
+    }
+
+    pub fn resize(self: Circle, factor: int) {
+        self.radius = self.radius * factor
+    }
+}
+
+main() {
+    c = Circle(5)
+    c.draw()
+    c.resize(3)
+    c.draw()
+    @println("Final radius: %d\n", c.radius)
+    0
+}
+# Test: Advanced collections - comprehensions, slices, and tuples
+
+main() {
+    # 1. Array Comprehensions
+    nums = [1, 2, 3, 4, 5]
+    squares = [x * x for x in nums]
+    @print("Squares: ")
+    for s in squares { @print("%d ", s) }
+    @println("")
+
+    # Range comprehension
+    even_squares = [x * x for x in 0..10] # 0, 1, 4, 9, 16, 25, 36, 49, 64, 81
+    @print("Range squares: ")
+    for s in even_squares { @print("%d ", s) }
+    @println("")
+
+    # 2. Slicing
+    sub = squares[1..4] # [4, 9, 16]
+    @print("Slice [1..4]: ")
+    for x in sub { @print("%d ", x) }
+    @println("")
+
+    # Inclusive slice
+    sub_inc = squares[1...3] # [4, 9, 16]
+    @print("Slice [1...3]: ")
+    for x in sub_inc { @print("%d ", x) }
+    @println("")
+
+    # 3. Tuples and Destructuring
+    t = (10, "hello", 3.14)
+    mut a = 0
+    mut b = ""
+    mut c = 0.0
+    (a, b, c) = t
+    @println("Tuple unpack: a=%d, b=%s, c=%f", a, b, c)
+
+    # Array of tuples
+    points = [(1, 2), (3, 4), (5, 6)]
+    @print("Points: ")
+    for p in points {
+        mut px = 0
+        mut py = 0
+        (px, py) = p
+        @print("(%d, %d) ", px, py)
+    }
+    @println("")
+
+    # 4. Array repeat
+    zeros = [0; 5]
+    @print("Zeros: ")
+    for z in zeros { @print("%d ", z) }
+    @println("")
+
+    0
+}
+
+
+fn main(): int {
+    // C-style line comment
+    # Hash comment
+    @println("Both comment styles work!\n")
+    // another C comment
+    return 0
+}
+fn get_val_1(): int { @println("Eval 1\n") 1 }
+fn get_val_2(): int { @println("Eval 2\n") 2 }
+fn get_val_3(): int { @println("Eval 3\n") 3 }
+
+fn main() {
+    @println("Test 1 < 3 < 2:\n")
+    if get_val_1() < get_val_3() < get_val_2() {
+        @println("FAIL\n")
+    } else {
+        @println("OK\n")
+    }
+
+    @println("\nTest 3 < 1 < 2:\n")
+    if get_val_3() < get_val_1() < get_val_2() {
+        @println("FAIL\n")
+    } else {
+        @println("OK\n")
+    }
+
+    0
+}
+# Test: Comparison chains and mixed types
+
+main() {
+    # Comparison chains
+    a = 10
+    b = 20
+    c = 30
+    
+    if a < b < c {
+        @println("a < b < c is true")
+    }
+
+    if a < b <= 20 {
+        @println("a < b <= 20 is true")
+    }
+
+    if 40 > c > b > a {
+        @println("40 > c > b > a is true")
+    }
+
+    # Mixed types comparisons
+    i = 10
+    f = 10.5
+    
+    if i < f {
+        @println("10 < 10.5 is true")
+    }
+    
+    if f > 5 {
+        @println("10.5 > 5 is true")
+    }
+
+    # Complex chain
+    if 5 < i <= 10 < f < 20 {
+        @println("5 < 10 <= 10 < 10.5 < 20 is true")
+    }
+
+    0
+}
+# Test: const reassignment (should error)
+const  PI = 3.14
+
+main() {
+    PI = 6.28
+    0
+}
+
+
+fn main(): int {
+    mut x = 10
+    mut y = 0
+    @println("Result: %d\n", x / y) # should panic
+    return 0
+}
+# Test: duplicate function definition (should error)
+fn greet() -> 1
+fn greet() -> 2
+
+main() {
+    greet()
+    0
+}
+class Base {
+    pub fn hello(self: Base) {
+        @println("Base hello\n")
+    }
+}
+
+class Derived : Base {
+    override pub fn hello(self: Derived) {
+        @println("Derived hello\n")
+    }
+}
+
+fn main() {
+    mut b: Base = Derived()
+    b.hello()
+    0
+}
+fn main() {
+    mut x = 10
+    val = if x == 5 {
+        5
+    } ef x == 10 {
+        10
+    } else {
+        0
+    }
+    @println("val = %d\n", val)
+    0
+}
+# Test: Runtime error checks
+
+main() {
+    # 1. Division by zero check
+    a = 10
+    b = 0
+    res = a / b # This should panic
+
+    # 2. Bounds check
+    arr = [1, 2, 3]
+    # x = arr[5] # This should panic
+
+    # 3. Null check
+    # In Luv, nen is null.
+    # class P { name: string }
+    # p: P = nen
+    # n = p.name # This should panic
+
+    @println("Checks implemented but not triggered here.")
+    0
+}
+main() {
+    if 0 {
+        return 1
+    }
+    return 0
+}
+# Test: all three new features
+
+# Extern: link to C's puts and exit
+extern fn puts(s: string): int
+extern fn exit(code: int): void
+
+main() {
+    # Intrinsics
+    a = 10
+    b = 3
+    mx = @max(a, b)
+    mn = @min(a, b)
+    ab = @abs(-42)
+    sz = @sizeof(a)
+    pc = @popcount(255)
+
+    @println("max(10,3) = %d\n", mx)
+    @println("min(10,3) = %d\n", mn)
+    @println("abs(-42)  = %d\n", ab)
+    @println("sizeof(int) = %ld\n", sz)
+    @println("popcount(255) = %d\n", pc)
+
+    # Inline assembly (x86_64: load 42 into result register)
+    x = asm { "movq $$42, $0" }
+    @println("asm result = %ld\n", x)
+
+    # Extern call
+    puts("Hello from extern puts!")
+
+    0
+}
+fn main() {
+    @println("Line 1\nLine 2\tTabbed\bBackspace\rCarriageReturn\\Backslash\"Quote\'SingleQuote\n")
+    
+    # Test tuple destructuring in assignment
+    mut a, b = (10, 20)
+    @println("a=%d b=%d\n", a, b)
+    
+    a, b = (30, 40)
+    @println("after reassignment: a=%d b=%d\n", a, b)
+    
+    0
+}
+fn main() {
+    val = if true { 42 } else { 24 }
+    @println("val = %d\n", val)
+    0
+}
+class Vehicle {
+    pub brand: string
+    pub speed: int
+
+    fn init(self: Vehicle, brand: string, speed: int) {
+        self.brand = brand
+        self.speed = speed
+    }
+
+    pub fn honk(self: Vehicle) {
+        @println("%s goes BEEP!\n", self.brand)
+    }
+}
+
+class Car : Vehicle {
+    pub doors: int
+
+    fn init(self: Car, brand: string, speed: int, doors: int) {
+        self.brand = brand
+        self.speed = speed
+        self.doors = doors
+    }
+
+    pub fn info(self: Car) {
+        @println("%s: %d doors, %d km/h\n", self.brand, self.doors, self.speed)
+    }
+}
+
+class ElectricCar : Car {
+    pub battery: int
+
+    fn init(self: ElectricCar, brand: string, speed: int, doors: int, battery: int) {
+        self.brand = brand
+        self.speed = speed
+        self.doors = doors
+        self.battery = battery
+    }
+
+    override pub fn honk(self: ElectricCar) {
+        @println("%s goes WHIRRR!\n", self.brand)
+    }
+
+    pub fn charge(self: ElectricCar) {
+        @println("Charging %s (%d%% battery)\n", self.brand, self.battery)
+    }
+}
+
+main() {
+    mut v: Vehicle = Vehicle("Generic", 50)
+    v.honk()
+
+    v = Car("Toyota", 180, 4)
+    v.honk() # Should still be BEEP
+
+    v = ElectricCar("Tesla", 250, 4, 85)
+    v.honk() # Should be WHIRRR
+
+    # Test static dispatch still works via direct type
+    e = ElectricCar("Leaf", 150, 4, 40)
+    e.honk() # WHIRRR
+    e.info() # Car info
+    0
+}
+interface IGreet {
+    fn area(): float
+}
+
+class Person : IGreet {
+    fn area(): float -> 3.14
+}
+
+main() {
+    p = Person()
+    g: IGreet = p
+    @println("Area: %f", g.area())
+    0
+}
+fn main() {
+    println("Starting loop test")
+    
+    // Simple loop with break
+    for i in 0..10 {
+        if i == 5 {
+            break
+        }
+        println("i =", i)
+    }
+    
+    // Simple loop with continue
+    for i in 0..5 {
+        if i == 2 {
+            continue
+        }
+        println("i =", i)
+    }
+    
+    // Labeled loop
+    ![outer] for i in 0..3 {
+        ![inner] for j in 0..3 {
+            if i == 1 and j == 1 {
+                break outer
+            }
+            println("i =", i, "j =", j)
+        }
+    }
+    
+    println("Loop test finished")
+}
+# Test: Match expressions and blocks
+
+fn test_match_expr(x: int) : string {
+    return match x {
+        1 => "one",
+        2 => "two",
+        3 => "three",
+        _ => "other"
+    }
+}
+
+fn test_match_block(x: int) {
+    match x {
+        1 => {
+            @println("Block: It's one")
+        }
+        2 => {
+            @println("Block: It's two")
+        }
+        _ => {
+            @println("Block: It's something else")
+        }
+    }
+}
+
+main() {
+    @println("Match expr (1): %s", test_match_expr(1))
+    @println("Match expr (2): %s", test_match_expr(2))
+    @println("Match expr (5): %s", test_match_expr(5))
+
+    test_match_block(1)
+    test_match_block(2)
+    test_match_block(10)
+
+    # Match with strings (if supported by codegen)
+    s = "hello"
+    # Codegen only supports integer matching currently based on visit(MatchExpr)
+    # let's test integer matching more thoroughly
+    
+    val = 100
+    res = match val {
+        50 => 1,
+        100 => 2,
+        _ => 0
+    }
+    @println("Match int: %d", res)
+
+    0
+}
+main() {
+    x = 1 + 2.5
+    return 0
+}
+
+
+fn removeWhiteSpace(mut name: string) {
+    # We'll just append something or change it.
+    # But since it's a string (pointer), mutating it in place in Luv is just pointer reassignment
+    # unless we manipulate the bytes. Let's mutate the pointer to point to a new string!
+    name = "edited"
+}
+
+
+main() {
+    # Test 1: non-mut variable
+    name = "Sa mi"
+    removeWhiteSpace(name)
+    @println("After test 1 (expected 'Sa mi'): %s\n", name)
+
+    # Test 2: non-mut reassigned
+    name = "Sa mi 2"
+    removeWhiteSpace(name)
+    @println("After test 2 (expected 'Sa mi 2'): %s\n", name)
+
+    # Test 3: mut variable
+    mut mut_name = "Sa mi"
+    removeWhiteSpace(mut_name)
+    @println("After test 3 (expected 'edited'): %s\n", mut_name)
+
+    0
+}
+fn main(): int {
+    mut a: int? = nen
+    if (a == nen) {
+        @println("a is nen")
+    } else {
+        @println("a is not nen")
+    }
+    a = 5
+    if (a != nen) {
+        @println("a is not nen")
+    } else {
+        @println("a is nen")
+    }
+    return 0
+}
+class Vector {
+    pub x: int
+    pub y: int
+
+    pub fn set(newX: int, newY: int) {
+        self.x = newX
+        self.y = newY
+    }
+}
+
+main() {
+    v = Vector()
+    v->x = 10
+    v->y = 20
+    
+    # Compound assignment
+    v->x += 5
+    v->y *= 2
+    
+    # Postfix
+    v->x++
+    v->y--
+    
+    # Now check values
+    if (v.x == 16 && v.y == 39) {
+        @println("New expression features verified!")
+    } else {
+        @println("Verification failed.")
+        @println(v.x)
+        @println(v.y)
+    }
+    0
+}
+# Test: OOP polish - inheritance, interfaces, and super
+
+interface Shape {
+    fn area(): float
+    fn name(): string
+}
+
+class BaseShape : Shape {
+    fn area(): float -> 0.0
+    fn name(): string -> "Generic Shape"
+}
+
+class Circle : BaseShape {
+    radius: float
+
+    fn init(r: float) {
+        self.radius = r
+    }
+
+    override fn area(): float {
+        return 3.14159 * self.radius * self.radius
+    }
+
+    override fn name(): string -> "Circle"
+}
+
+class Rectangle : BaseShape {
+    w: float
+    h: float
+
+    fn init(w: float, h: float) {
+        self.w = w
+        self.h = h
+    }
+
+    override fn area(): float {
+        return self.w * self.h
+    }
+
+    override fn name(): string -> "Rectangle"
+}
+
+# Test multi-level inheritance
+class Square : Rectangle {
+    fn init(s: float) {
+        super.init(s, s)
+    }
+
+    override fn name(): string -> "Square"
+}
+
+fn print_shape(s: Shape) {
+    @print("Shape: %s", s.name())
+    @println(", Area: %f", s.area())
+}
+
+main() {
+    c = Circle(5.0)
+    r = Rectangle(4.0, 6.0)
+    s = Square(3.0)
+
+    print_shape(c)
+    print_shape(r)
+    print_shape(s)
+
+    # Test virtual calls on base pointer
+    b: BaseShape = c
+    @println("Base pointer (Circle) name: %s", b.name())
+    
+    b = r
+    @println("Base pointer (Rectangle) name: %s", b.name())
+
+    0
+}
+class Base {
+    fn name(): string -> "Base"
+}
+
+class Derived : Base {
+    override fn name(): string -> "Derived"
+}
+
+main() {
+    d = Derived()
+    @println("Name: %s", d.name())
+    
+    b: Base = d
+    @println("Base Name: %s", b.name())
+    0
+}
+
+
+class Vector {
+    pub x: int
+    pub y: int
+
+    pub fn init(self: Vector) {
+        self.x = 0
+        self.y = 0
+    }
+
+    pub fn +(self: Vector, other: Vector): Vector {
+        res: Vector = Vector()
+        res.x = self.x + other.x
+        res.y = self.y + other.y
+        return res
+    }
+}
+
+fn main() {
+    v1: Vector = Vector()
+    v1.x = 10
+    v1.y = 20
+
+    v2: Vector = Vector()
+    v2.x = 5
+    v2.y = 15
+
+    v3: Vector = v1 + v2
+    
+    # We can't print integers properly yet without formats, but we can verify it doesn't crash
+    if v3.x == 15 {
+        @println("Success\n")
+    }
+}
+
+
+class Base {
+    pub fn hello(self: Base) {
+        @println("Base hello\n")
+    }
+}
+
+class Derived : Base {
+    override pub fn hello(self: Derived) {
+        @println("Derived hello\n")
+    }
+}
+
+fn main() {
+    d: Derived = Derived()
+    d.hello()
+    0
+}
+
+
+fn main(): int {
+    mut arr = [1, 2, 3]
+    @println("Accessing arr[10]: %d\n", arr[10]) # should panic
+    return 0
+}
+fn main(): int {
+    mut arr = [1, 2, 3]
+    @println(arr)
+    return 0
+}
+# Test: importing private symbol without @ (should error)
+use sub from math
+
+main() {
+    x = sub(10, 3)
+    0
+}
+
+
+class BankAccount {
+    priv balance: int
+    
+    pub fn init(self: BankAccount) {
+        self.balance = 100
+    }
+    
+    priv fn internalCheck(self: BankAccount) {
+        @println("Internal check ok\n")
+    }
+    
+    pub fn withdraw(self: BankAccount) {
+        self.internalCheck()
+        self.balance = self.balance - 10
+        @println("Withdrew 10\n")
+    }
+}
+
+fn main() {
+    acc: BankAccount = BankAccount()
+    acc.withdraw()
+    
+    # acc.balance = 500       # ERROR: private field
+    # acc.internalCheck()     # ERROR: private method
+    0
+}
+/*
+  Test scripting mode, advanced inference, auto-const, and main with arguments.
+*/
+
+println("1. Testing scripting mode...")
+println("This code is running at the top level!")
+
+// 2. Type Inference: x and y should be inferred as int from the usage below
+fn add(x, y) {
+    return x + y
+}
+
+fn add_with_default(a, b = 100) {
+    return a + b
+}
+println("Default value test: ", add_with_default(5))
+
+mut sum = add(10, 20)
+println("Sum of 10 and 20 is: ", sum)
+
+// 3. Array Inference: arr should be inferred as [int]
+mut arr = [1, 2, 3, 4]
+println("Array elements: ", arr[0], arr[1], arr[2], arr[3])
+println("Array length: ", arr.len)
+
+// 4. Auto-const Optimization:
+// 'my_const' is never reassigned, so it should be automatically optimized to const.
+mut my_const = 42
+println("my_const is: ", my_const)
+
+// 5. Main with Arguments
+fn main(args: [string]) {
+    println("\n2. Main function called!")
+    println("Received ", args.len, " arguments.")
+    
+    if (args.len > 0) {
+        println("Arguments list:")
+        for i in 0..args.len {
+            println("  arg[", i, "]: ", args[i])
+        }
+    }
+}
+println("Running: ", __name__)
+println("Arguments: ", __arg__.len)
+
+for i in 0..__arg__.len {
+    println("  arg[", i, "]: ", __arg__[i])
+}
+
+if (__name__ == "__main__") {
+    println("This is the main script!")
+}
+
+
+class MathUtils {
+    pub static fn add(a: int, b: int): int {
+        return a + b
+    }
+}
+
+fn main() {
+    result = MathUtils.add(5, 10)
+    @println("Result: %d\n", result)
+    0
+}
+
+
+main() {
+    # Test 1: Binary + String concatenation
+    a = "Hello, "
+    b = "Luv compiler!"
+    c = a + b
+    
+    #multiline 
+    e = "
+    hello!
+    "
+    @println("Concat test: %s\n", c)
+    
+    # Test 2: String Interpolation
+    name = "World"
+    age = 42
+    msg = &"Message: {name}, the answer is {age * 2}!"
+    
+    @println("Interpolation test: %s\n", msg)
+
+    # Test 3: String methods (injected automatically via ptr_ method names)
+    l = c.length()
+    up = c.toUpper()
+    @println("Concat length: %d\n", l)
+    @println("Uppercase: %s\n", up)
+    
+    0
+}
+# Test: String interpolation and methods
+
+main() {
+    name = "World"
+    age = 42
+    pi = 3.14159
+    
+    # Interpolation
+    # The grammar says &"..." or &`...` for interpolation
+    msg = &"Hello, {name}! You are {age} years old. PI is {pi}."
+    @println("%s", msg)
+
+    # String methods
+    s = "  Luv Language  "
+    trimmed = s.trim()
+    @println("Original: '%s'", s)
+    @println("Trimmed:  '%s'", trimmed)
+    @println("Length:   %d", s.length())
+    
+    upper = trimmed.toUpper()
+    lower = trimmed.toLower()
+    @println("Upper: %s", upper)
+    @println("Lower: %s", lower)
+
+    if trimmed.startsWith("Luv") {
+        @println("Starts with Luv")
+    }
+    
+    if trimmed.contains("Language") {
+        @println("Contains Language")
+    }
+
+    idx = trimmed.indexOf("Lang")
+    @println("Index of 'Lang': %d", idx)
+
+    0
+}
+
+
+# ── Structs still work alongside classes ──
+
+struct Point {
+    x: int
+    y: int
+}
+
+fn Point add(a: Point, b: Point): Point {
+    Point { x: a.x + b.x, y: a.y + b.y }
+}
+
+class Canvas {
+    pub width: int
+    pub height: int
+
+    fn init(self: Canvas, w: int, h: int) {
+        self.width = w
+        self.height = h
+    }
+
+    pub fn describe(self: Canvas) {
+        @println("Canvas %dx%d\n", self.width, self.height)
+    }
+}
+
+main() {
+    a = Point { x: 10, y: 20 }
+    b = Point { x: 5, y: 15 }
+    c = a.add(b)
+    @println("Point: %d, %d\n", c.x, c.y)
+
+    canvas = Canvas(800, 600)
+    canvas.describe()
+    0
+}
+
+
+class Parent {
+    pub fn greet(self: Parent) {
+        @println("Hello from Parent\n")
+    }
+}
+
+class Child : Parent {
+    override pub fn greet(self: Child) {
+        super.greet()
+        @println("Hello from Child\n")
+    }
+}
+
+fn main() {
+    c: Child = Child()
+    c.greet()
+    0
+}
+main() {
+    if 1 {
+        return 1
+    }
+    return 0
+}
+fn main(): int {
+    mut a, b, c = (42, 100, 7)
+    @println("a=%d b=%d c=%d
+", a, b, c)
+    return 0
+}
+fn main(): int {
+    mut a, (b, c) = (1, (2, 3))
+    @println("a=%d b=%d c=%d
+", a, b, c)
+    return 0
+}
+# Test: undefined function (should error with suggestion)
+fn calculate(x: int) -> x * 2
+
+main() {
+    
+    y = calculate(5)
+    0
+}
+# Test: valid program (no recursion to avoid codegen issue)
+fn square(x: int) -> x * x
+fn double(x: int) -> x + x
+
+main() {
+    a = square(5)
+    b = double(3)
+    @println("square(5) = %d\n", a)
+    @println("double(3) = %d\n", b)
+    0
+}
+fn main() {
+    j = 0
+    while j < 5 {
+        if j == 2 { 
+            j++
+            continue 
+        }
+        print(&"{j} ")
+        j++
+    } continue {
+        print("(end) ")
+    }
+    println("")
+}
+fn main() {
+    while false {}
+}
+fn main() {
+    i = 0
+    while i < 3 {
+        i++
+    }
+}
+fn main() {
+    i = 0
+    while i < 3 {
+        print(i)
+        i++
+    }
+    println("")
+}
+fn main() {
+    i = 0
+    while i < 3 {
+        print(i)
+        i++
+    } continue {
+        print(" next ")
+    }
+    println("")
+}
+fn main() {
+    var i = 0
+    while i < 3 {
+        print(i)
+        i++
+    } continue {
+        print(" next ")
+    }
+    println("")
+}
+fn main() {
+    var i = 0
+    while i < 1 {
+        i = 1
+    }
+}
+fn main() {
+    i = 0
+    while i < 1 {
+        i = 1
+    }
+}

@@ -1,0 +1,4 @@
+fn main() {
+    mut t: (int, (string, bool)) = (1, ("hello", true));
+    @println(t.1.0);
+}

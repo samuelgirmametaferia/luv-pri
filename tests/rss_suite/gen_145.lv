@@ -1,0 +1,6 @@
+// RSS Generated Test 145 (Category: escape)
+fn main() {
+    unique x_145 = 145;
+    lent y_145 = x_145;
+    0
+}

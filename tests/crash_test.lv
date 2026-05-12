@@ -1,0 +1,71 @@
+
+
+fn main(): int {
+    # ═══════════════════════════════════════════════
+    # 1. Array literal with type inference
+    # ═══════════════════════════════════════════════
+    mut arr = [10, 20, 30]
+    @println("=== 1. Array Literal ===\n")
+    @println("arr[0]=%d arr[1]=%d arr[2]=%d\n", arr[0], arr[1], arr[2])
+
+    # ═══════════════════════════════════════════════
+    # 2. Array .len / .cap properties
+    # ═══════════════════════════════════════════════
+    @println("\n=== 2. Properties ===\n")
+    @println("arr.len=%lld arr.cap=%lld\n", arr.len, arr.cap)
+
+    # ═══════════════════════════════════════════════
+    # 3. Array index assignment (mutation)
+    # ═══════════════════════════════════════════════
+    @println("\n=== 3. Index Assignment ===\n")
+    arr[1] = 99
+    @println("arr[1] after mutation = %d\n", arr[1])
+
+    # ═══════════════════════════════════════════════
+    # 4. If with array element
+    # ═══════════════════════════════════════════════
+    @println("\n=== 4. If on Array Element ===\n")
+    if arr[1] == 99 {
+        @println("arr[1] is 99 - OK\n")
+    }
+    if arr[0] == 10 {
+        @println("arr[0] is 10 - OK\n")
+    }
+
+    # ═══════════════════════════════════════════════
+    # 5. For-in loop over array
+    # ═══════════════════════════════════════════════
+    @println("\n=== 5. For-in Loop ===\n")
+    for v in arr {
+        @println("  elem: %d\n", v)
+    }
+
+    # ═══════════════════════════════════════════════
+    # 6. Match on array element
+    # ═══════════════════════════════════════════════
+    @println("\n=== 6. Match ===\n")
+    match arr[2] {
+        30 => @println("matched 30 OK\n"),
+        _ => @println("FAIL\n")
+    }
+    match arr[0] {
+        10 => @println("matched 10 OK\n"),
+        20 => @println("FAIL\n"),
+        _ => @println("FAIL\n")
+    }
+
+    # ═══════════════════════════════════════════════
+    # 7. Repeat-array with compile-time count
+    # ═══════════════════════════════════════════════
+    @println("\n=== 7. Repeat Array ===\n")
+    mut zeros = [0; 5]
+    @println("zeros.len=%lld zeros[3]=%d\n", zeros.len, zeros[3])
+
+    mut fives = [5; 3]
+    @println("fives.len=%lld fives[0]=%d fives[2]=%d\n", fives.len, fives[0], fives[2])
+
+    # ═══════════════════════════════════════════════
+    # 8. Tuple creation & destructuring
+    # ═══════════════════════════════════════════════
+    @println("\n=== 8. Tuple Destructuring ===\n")
+}

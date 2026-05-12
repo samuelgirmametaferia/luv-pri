@@ -1,0 +1,11 @@
+# BLV Build Orchestration for pimp
+
+let src = @load("./src/main.lv", codec.luv)
+
+# Build to object
+let obj = @build -o "build" src
+
+# Link to executable (incorporating luv_string if needed)
+@link(obj, "build/pimp")
+
+@emit(obj, "build/pimp.o")

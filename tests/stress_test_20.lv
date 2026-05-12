@@ -1,0 +1,13 @@
+struct S { x: int }
+class C { x: int }
+fn main() {
+    mut s1 = S { x: 1 };
+    mut s2 = s1;
+    s2.x = 2;
+    @println(s1.x); // Should be 1
+
+    mut c1 = C { x: 1 };
+    mut c2 = c1;
+    c2.x = 2;
+    @println(c1.x); // Should be 2
+}

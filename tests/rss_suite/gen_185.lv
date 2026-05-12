@@ -1,0 +1,6 @@
+// RSS Generated Test 185 (Category: escape)
+fn main() {
+    unique x_185 = 185;
+    rc_shared y_185 = x_185;
+    0
+}

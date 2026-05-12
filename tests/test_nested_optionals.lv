@@ -1,0 +1,15 @@
+fn main() {
+    mut x: int?? = 5;
+    @println("x is %d", x);
+    
+    mut y: int?? = nen;
+    if y == nen {
+        @println("y is nen");
+    }
+
+    # Deeply nested optional
+    mut z: int??? = 10;
+    @println("z is %d", z);
+    
+    0
+}

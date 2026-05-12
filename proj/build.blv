@@ -1,0 +1,14 @@
+# ─────────────────────────────────────────────────────────
+# Luv Generic Linux Orchestration Script (proj)
+# ─────────────────────────────────────────────────────────
+
+let app_name = @cli.get("app")
+if (app_name == "") { let app_name = "proj" }
+
+let src = @load("./src/main.lv", codec.luv)
+verify @enforce(@policy(require.alignment(4)), src)
+
+let obj = @build -o "build" src
+@link(obj, "build/" + app_name, "dynamic")
+
+let ret = @exec("echo '\033[1;32mBuild complete: build/" + app_name + "\033[0m'")

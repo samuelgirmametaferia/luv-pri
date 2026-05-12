@@ -1,0 +1,6 @@
+// RSS Generated Test 42 (Category: aliasing)
+fn main() {
+    unique x_42 = 42;
+    unique y_42 = x_42;
+    0
+}

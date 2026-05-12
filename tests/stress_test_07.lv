@@ -1,0 +1,7 @@
+fn test(x: int) {
+    mut x = 10;
+    @println(x);
+}
+fn main() {
+    test(5);
+}

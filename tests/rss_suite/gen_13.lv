@@ -1,0 +1,6 @@
+// RSS Generated Test 13 (Category: sao_tag)
+fn main() {
+    unique x_13 = 13;
+    lent y_13 = x_13;
+    0
+}

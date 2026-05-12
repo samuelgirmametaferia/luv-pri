@@ -1,0 +1,10 @@
+class A { fn f() { @println("A") } }
+class B : A { override fn f() { @println("B") } }
+class C : B { override fn f() { @println("C") } }
+class D : C { override fn f() { @println("D") } }
+class E : D { override fn f() { @println("E") } }
+class F : E { override fn f() { @println("F") } }
+fn main() {
+    mut obj = F {};
+    obj.f();
+}
